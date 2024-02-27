@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
+    height: 100vh;
+    width : 100vw;
   }
 
   *,
@@ -17,8 +19,10 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    background: '#FFFFFF';
-    color: '#000000'
+    background: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
+    height: inherit;
+    width: inherit;
   }
 
   :lang(ko) {

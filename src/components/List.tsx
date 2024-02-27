@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '@/store/index';
 import { todoRemove } from '@/store/reducers';
+import { DivStyle, UlStyle, LiStyle } from '@/styles/elementStyle';
 
 function List() {
   const todos = useSelector((state: RootState) => state.todo);
@@ -12,16 +13,16 @@ function List() {
   };
 
   return (
-    <div>
-      <ul>
+    <DivStyle>
+      <UlStyle>
         {todos.map(todo => (
-          <li key={todo.id}>
+          <LiStyle key={todo.id}>
             {todo.text}
             <button onClick={() => handleRemove(todo.id)}>Delete</button>
-          </li>
+          </LiStyle>
         ))}
-      </ul>
-    </div>
+      </UlStyle>
+    </DivStyle>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { FormStyle, InputField, ButtonStyle } from '@/styles/elementStyle';
 
 import { todoAdded } from '@/store/reducers';
 
@@ -9,7 +10,9 @@ function AddTodo() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!text.trim()) return;
+    if (!text.trim()) {
+      return;
+    }
 
     dispatch(todoAdded({
       id: Date.now(),
@@ -21,10 +24,10 @@ function AddTodo() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={text} onChange={e => setText(e.target.value)} />
-      <button type="submit">Add</button>
-    </form>
+    <FormStyle onSubmit={handleSubmit}>
+      <InputField type="text" value={text} onChange={e => setText(e.target.value)} />
+      <ButtonStyle type="submit">Add</ButtonStyle>
+    </FormStyle>
   );
 }
 

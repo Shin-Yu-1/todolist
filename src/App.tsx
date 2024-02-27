@@ -11,7 +11,6 @@ function App() {
     <ThemeProvider theme={DefaultTheme}>
       <Reset />
       <GlobalStyle />
-      <h1>Todo List</h1>
       <AddTodo />
       <List />
     </ThemeProvider>
